@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Update Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <style>
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(100%);
+        }
+
+        @media (max-width: 991.98px) {
+            .show-on-computer {
+                display: none !important;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <header class="sticky-top" style="background-color: #00789d">
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg" style="background-color: #00789d">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-white" href="gallery.html">StudentHub</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse " id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
+                            <li>
+                                <a class="nav-link active text-white" aria-current="page" href="all.html">All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="find.html">Find</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="update.html">Update</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="email.html">Email</a>
+                            </li>
+                        </ul>
+                        <a href="new.html"> <button class="btn btn-outline-light" type="submit">New</button></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container p-5">
+        <div class="row  justify-content-center">
+            <div id="carouselExampleControls" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row  justify-content-center">
+                            <div class="col-md-6 m-3 p-3 rounded shadow-lg">
+                                <h5 class="text-center">Update by SID </h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="studentId" class="form-label">Student ID</label>
+                                        <input type="text" class="form-control" id="studentId"
+                                            placeholder="Enter Student ID">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter Email">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lastName"
+                                            placeholder="Enter Last Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="firstName"
+                                            placeholder="Enter First Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nearestCity" class="form-label">Nearest City</label>
+                                        <input type="text" class="form-control" id="nearestCity"
+                                            placeholder="Enter Nearest City">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="guardian" class="form-label">Guardian</label>
+                                        <input type="text" class="form-control" id="guardian"
+                                            placeholder="Enter Guardian">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subjects" class="form-label">Subjects</label>
+                                        <input type="text" class="form-control" id="subjects"
+                                            placeholder="Enter Subjects">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="course" class="form-label">Course</label>
+                                        <input type="text" class="form-control" id="courses" placeholder="Enter Course">
+                                    </div>
+
+                                </form>
+                                <button type="submit" id="updateBySID" class="btn btn-primary">Update</button>
+                            </div>
+                            <!-- <div class="col-md-5   m-3 show-on-computer">
+                                <img src="Images/annie-spratt-MChSQHxGZrQ-unsplash.jpg"
+                                    class="rounded shadow-lg card-img-top" alt="">
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row  justify-content-center">
+                            <div class="col-md-6 m-3 p-3 rounded shadow-lg">
+                                <h5 class="text-center">Update by First Name </h5>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="firstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="fname"
+                                            placeholder="Enter First Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="studentId" class="form-label">Student ID</label>
+                                        <input type="text" class="form-control" id="sid" placeholder="Enter Student ID">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="em" placeholder="Enter Email">
+                                    </div>
+
+
+                                    <div class="mb-3">
+                                        <label for="lastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lname"
+                                            placeholder="Enter Last Name">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nearestCity" class="form-label">Nearest City</label>
+                                        <input type="text" class="form-control" id="ncity"
+                                            placeholder="Enter Nearest City">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="guardian" class="form-label">Guardian</label>
+                                        <input type="text" class="form-control" id="guard" placeholder="Enter Guardian">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subjects" class="form-label">Subjects</label>
+                                        <input type="text" class="form-control" id="subs" placeholder="Enter Subjects">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="course" class="form-label">Course</label>
+                                        <input type="text" class="form-control" id="cour" placeholder="Enter Course">
+                                    </div>
+
+                                </form>
+                                <button type="submit" id="updateByfName" class="btn btn-primary">Submit</button>
+                            </div>
+                            <!-- <div class="col-md-5   m-3 show-on-computer">
+                                                        <img src="Images/annie-spratt-MChSQHxGZrQ-unsplash.jpg"
+                                                            class="rounded shadow-lg card-img-top" alt="">
+                                                    </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </div>
+    <footer class="sticky-bottom">
+
+    </footer>
+    <!-- Using Fetch API -->
+    <!-- <script>
+        //Update  Student Data by ID
+        const updateBySIDButton = document.getElementById("updateBySID");
+
+        // Add a click event listener to the Update button
+        updateBySIDButton.addEventListener("click", updateBySID);
+        const form = document.getElementById("insertState");
+        // Function to handle the Update operation
+        function updateBySID() {
+
+            const courseArray = document.getElementById("courses").value.split(",")
+            const subjectArray = document.getElementById("subjects").value.split(",")
+            let x = {
+                "SID": document.getElementById("studentId").value,
+                "FirstName": document.getElementById("firstName").value,
+                "LastName": document.getElementById("lastName").value,
+                "Email": document.getElementById("email").value,
+                "NearCity": document.getElementById("nearestCity").value,
+                "Guardian": document.getElementById("guardian").value,
+                "Course": courseArray,
+                "Subjects": subjectArray
+            }
+            var studentId = document.getElementById("studentId").value;
+            console.log(studentId)
+            const options = {
+                method: 'PUT',
+                body: JSON.stringify(x)
+            };
+
+            fetch("http://127.0.0.1:9000/api/update/sid/" + studentId, {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(x)
+            })
+
+                .then(response => {
+                    if (response.ok) {
+                        // Successful update
+                        // Display alert for success
+
+                        alert("Update by SID successful!");
+
+
+                    } else {
+                        throw new Error("Update by SID request failed");
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    // Handle errors
+                    alert("Update by SID failed. Please try again."); // Display alert for failure
+                })
+
+
+        }
+
+
+        //Update  Student Data by First Name
+        const updateByfNameButton = document.getElementById("updateByfName");
+
+        // Add a click event listener to the Update button
+        updateByfNameButton.addEventListener("click", updateByfName);
+        const updateByfNameForm = document.getElementById("insertState");
+        // Function to handle the Update operation
+        function updateByfName() {
+
+            const courseArray = document.getElementById("cour").value.split(",")
+            const subjectArray = document.getElementById("subs").value.split(",")
+            let x = {
+                "SID": document.getElementById("sid").value,
+                "FirstName": document.getElementById("fname").value,
+                "LastName": document.getElementById("lname").value,
+                "Email": document.getElementById("em").value,
+                "NearCity": document.getElementById("ncity").value,
+                "Guardian": document.getElementById("guard").value,
+                "Course": courseArray,
+                "Subjects": subjectArray
+            }
+            var fname = document.getElementById("studentId").value;
+            console.log(fname)
+            const options = {
+                method: 'PUT',
+                body: JSON.stringify(x)
+            };
+
+            fetch("http://127.0.0.1:9000/api/update/fname/" + fname, {
+                method: 'PUT',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(x)
+            })
+
+                .then(response => {
+                    if (response.ok) {
+                        // Successful update
+                        // Display alert for success
+
+                        alert("Update by First Name successful!");
+
+
+                    } else {
+                        throw new Error("Update by First Name request failed");
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                    // Handle errors
+                    alert("Update by First Name failed. Please try again."); // Display alert for failure
+                })
+
+
+        }
+
+
+    </script> -->
+
+    <!-- Using Ajax -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Update Student Data by ID
+            const updateBySIDButton = $("#updateBySID");
+            updateBySIDButton.on("click", updateBySID);
+
+            function updateBySID() {
+                const courseArray = $("#courses").val().split(",");
+                const subjectArray = $("#subjects").val().split(",");
+                const studentId = $("#studentId").val();
+
+                let data = {
+                    "SID": $("#studentId").val(),
+                    "FirstName": $("#firstName").val(),
+                    "LastName": $("#lastName").val(),
+                    "Email": $("#email").val(),
+                    "NearCity": $("#nearestCity").val(),
+                    "Guardian": $("#guardian").val(),
+                    "Course": courseArray,
+                    "Subjects": subjectArray
+                };
+
+                $.ajax({
+                    url: "http://127.0.0.1:9000/api/update/sid/" + studentId,
+                    type: "PUT",
+                    contentType: "application/json",
+                    data: JSON.stringify(data),
+                    success: function (response) {
+                        alert("Update by SID successful!");
+                    },
+                    error: function (error) {
+                        console.error(error);
+                        alert("Update by SID failed. Please try again.");
+                    }
+                });
+            }
+
+            // Update Student Data by First Name
+            const updateByfNameButton = $("#updateByfName");
+            updateByfNameButton.on("click", updateByfName);
+
+            function updateByfName() {
+                const courseArray = $("#cour").val().split(",");
+                const subjectArray = $("#subs").val().split(",");
+                const fname = $("#fname").val();
+
+                let data = {
+                    "SID": $("#sid").val(),
+                    "FirstName": $("#fname").val(),
+                    "LastName": $("#lname").val(),
+                    "Email": $("#em").val(),
+                    "NearCity": $("#ncity").val(),
+                    "Guardian": $("#guard").val(),
+                    "Course": courseArray,
+                    "Subjects": subjectArray
+                };
+
+                $.ajax({
+                    url: "http://127.0.0.1:9000/api/update/fname/" + fname,
+                    type: "PUT",
+                    contentType: "application/json",
+                    data: JSON.stringify(data),
+                    success: function (response) {
+                        alert("Update by First Name successful!");
+                    },
+                    error: function (error) {
+                        console.error(error);
+                        alert("Update by First Name failed. Please try again.");
+                    }
+                });
+            }
+        });
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

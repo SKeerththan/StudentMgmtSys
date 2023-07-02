@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Add/Delete Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+    <link rel="stylesheet" href="../CSS/footer.css">
+</head>
+
+<body>
+    <header class="sticky-top" style="background-color: #00789d">
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg" style="background-color: #00789d">
+                <div class="container-fluid">
+                    <a class="navbar-brand text-white" href="gallery.html">StudentHub</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse " id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
+                            <li>
+                                <a class="nav-link active text-white" aria-current="page" href="all.html">All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="find.html">Find</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="update.html">Update</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="email.html">Email</a>
+                            </li>
+                        </ul>
+                        <a href="new.html"> <button class="btn btn-outline-light" type="submit">New</button></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="container p-5">
+        <div class="row  ">
+            <div class="col-md-6 border border-2 rounded p-3 m-3">
+                <h5 class="text-center">Insert Student</h5>
+                <form id="insertState">
+                    <div class="mb-3">
+                        <label for="studentId" class="form-label">Student ID</label>
+                        <input type="text" class="form-control" id="studentId" placeholder="Enter Student ID" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter Email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="Enter First Name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nearestCity" class="form-label">Nearest City</label>
+                        <input type="text" class="form-control" id="nearestCity" placeholder="Enter Nearest City"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="guardian" class="form-label">Guardian</label>
+                        <input type="text" class="form-control" id="guardian" placeholder="Enter Guardian" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="subjects" class="form-label">Subjects</label>
+                        <input type="text" class="form-control" id="subjects"
+                            placeholder="Enter Subjects / Separate with comma" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="course" class="form-label">Course</label>
+                        <input type="text" class="form-control" id="courses"
+                            placeholder="Enter Course / Separate with comma" required>
+                    </div>
+
+                </form>
+                <button type=" " id="insertButton" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="col-md-5  border border-2 rounded p-3 m-3">
+                <h5 class="text-center">Delete Student</h5>
+                <form action="" id="deleteForm">
+                    <div class="mb-3">
+                        <label for="studentId" class="form-label">Student ID</label>
+                        <input type="text" class="form-control" id="sid" placeholder="Enter Student ID" required>
+                    </div>
+
+                </form>
+                <button type="submit" id="deleteButton" class="btn btn-danger">Delete</button>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <footer class="sticky-bottom">
+
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        //Delete Data by SID
+        // Select the delete button element
+        const deleteButton = document.getElementById("deleteButton");
+
+        // Add a click event listener to the delete button
+        // deleteButton.addEventListener("click", deleteData);
+        $(document).ready(function () {
+            // Add form validation to the delete form
+            $('#deleteButton').click(function (event) {
+                event.preventDefault(); // Prevent the form from submitting
+
+                var sid = $('#sid').val();
+
+                if (sid === '') {
+                    alert('Please enter a Student ID.');
+                } else {
+                    // Delete data logic
+                    deleteData();
+                }
+            });
+
+            // Function to handle the delete operation
+            function deleteData() {
+
+
+
+
+                let midData = document.getElementById("sid").value;
+                const deleteForm = document.getElementById("deleteForm");
+                // idInput.placeholder = "Enter Student ID"
+
+
+                // Fetch API - method
+                fetch('http://127.0.0.1:9000/api/delete/' + midData, {
+                    method: 'DELETE',
+                })
+
+                    .then(res => {
+                        if (res.status === 200) {
+                            return res.json();
+                        } else {
+                            throw new Error("Delete request failed with status: " + res.status);
+                        }
+                    })
+                    .then(data => {
+                        const deleteCount = data.response.deletedCount; // Assuming the response JSON has a property "deleCount"
+                        console.log(deleteCount)
+                        if (deleteCount > 0) {
+                            alert("Data deleted successfully.");
+                            deleteForm.reset();
+
+                        } else {
+                            alert("No data deleted.");
+                            deleteForm.reset();
+
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                    });
+
+
+
+                // $.ajax({
+                //     url: 'http://127.0.0.1:9000/api/delete/' + midData,
+                //     type: 'DELETE',
+                //     success: function (data) {
+                //         const deleteCount = data.response.deletedCount; // Assuming the response JSON has a property "deletedCount"
+                //         console.log(deleteCount);
+                //         alert("Data deleted successfully.");
+                //     },
+                //     error: function (jqXHR, textStatus, errorThrown) {
+                //         console.error("Error:", errorThrown);
+                //         alert("Failed to delete data. Please try again.");
+                //     }
+                // });
+
+
+            }
+        });
+
+
+        //Insert Student Data
+        const insertButton = document.getElementById("insertButton");
+
+        // Add a click event listener to the insert button
+        insertButton.addEventListener("click", insertData);
+        const form = document.getElementById("insertState");
+        // Function to handle the insert operation
+        function insertData() {
+
+            const courseArray = document.getElementById("courses").value.split(",")
+            const subjectArray = document.getElementById("subjects").value.split(",")
+            let x = {
+                "SID": document.getElementById("studentId").value,
+                "FirstName": document.getElementById("firstName").value,
+                "LastName": document.getElementById("lastName").value,
+                "Email": document.getElementById("email").value,
+                "NearCity": document.getElementById("nearestCity").value,
+                "Guardian": document.getElementById("guardian").value,
+                "Course": courseArray,
+                "Subjects": subjectArray
+            }
+
+            //Fetch aPI code
+            // fetch("http://127.0.0.1:9000/api/student", {
+
+
+            //     method: "POST",
+            //     body: JSON.stringify(x),
+            //     headers: {
+            //         'Content-Type': 'application/JSON'
+            //     },
+            // }).then(function (response) {
+
+
+            //     return response.text();
+            // }).then(function (text) {
+            //     console.log(text);
+
+
+            // }).catch(function (error) {
+            //     console.log(error);
+            // })
+            // form.reset();
+
+
+
+            //Ajx- code
+            $.ajax({
+                url: 'http://127.0.0.1:9000/api/student',
+                type: 'POST',
+                data: JSON.stringify(x),
+                contentType: 'application/json',
+                success: function (response) {
+                    console.log(response);
+                    form.reset();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+
+
+        }
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
